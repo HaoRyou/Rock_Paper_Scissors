@@ -2,98 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="program.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <script>
-        console.log("Hello World");
-        
-        function backtonum(a){
-            switch(a){
-                case "rock": return 1;
-                case "paper": return 2;
-                default: return 3;
-            }
-        }
-        function numtochoice(a){
-            switch(a){
-                case 1: return "rock";
-                case 2: return "paper";
-                default: return "scissors";
-            }
-        }
+    <div class =main>
 
-        function getComputerChoice(){
-            return Math.floor((Math.random()*3)+1);
-        }
+        <h1>Rock Paper Scissors Game</h1>
 
-        function getHumanChoice(){
-            return prompt("Enter Rock, Paper,or Scissors").toLocaleLowerCase();
-        }
+        <div class = main  id ="container">
 
-        function playRound(humanChoice,computerChoice){
-            if(humanChoice==computerChoice){
-                console.log("Tie");;
-            }
-            else if((humanChoice == 2 && computerChoice == 1) || (humanChoice ==1 && computerChoice == 2)){
+            <div class = "Display">
+                <div id =Round></div>
+                <div id="choice"></div>
+                <div id="whowon"></div>
+            </div>
 
-                if(humanChoice == 1){
-                    computerScore++;
-                    console.log("Computer Won");
-                }
-                else {
-                    humanScore++;
-                    console.log("Player Won");
-                }
-            }
-            else if((humanChoice == 3 && computerChoice == 1) || (humanChoice == 1 && computerChoice == 3)){
+            <div class="Player">
+                <button id ="Rock">Rock</button>
+                <button id ="Paper">Paper</button>
+                <button id ="Scissors">Scissors</button>
+            </div>
 
-                if(humanChoice == 1){
-                    humanScore++;
-                    console.log("Player Won");
-                }
-                else {
-                    computerScore++;
-                    console.log("Computer Won");
-                }
-            }
-            else if((humanChoice == 3 && computerChoice == 2) || (humanChoice == 2 && computerChoice == 3)){
- 
-                if(humanChoice == 2){
-                    computerScore++;
-                    console.log("Computer Won");
-                }
-                else {
-                    humanScore++;
-                    console.log("Player Won");
-                }
-            }
-            return;
-        }
+            <button id = "restart" style = "display:none">Restart Game</button>
 
-        let humanScore = 0;
-        let computerScore = 0;
-        let computers;
-        let players;
-        console.log(`Player Score:${humanScore}  Computer Score: ${computerScore}`);
-        for(let i=1;i<=5;i++){
-            computers = getComputerChoice();
-            players = getHumanChoice();
-            console.log(`You pick ${players}, Computer pick ${numtochoice(computers)}` );
-            playRound(backtonum(players),computers);
-            console.log(`<Round: ${i}>  Player Score:${humanScore}  Computer Score: ${computerScore}`);
-        }
-        if(humanScore > computerScore){
-            console.log("Winner is Human");
-        }
-        else if(humanScore < computerScore){
-            console.log("Winner is Computer");
-        }
-        else{
-            console.log("No Winner, Tie!");
-        }
+        </div>
 
-    </script>
+    </div>
 </body>
 </html>
